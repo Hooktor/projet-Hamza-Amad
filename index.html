@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeTravel Agency — Campagne de Prestige</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Premium Glow Background Effects -->
+    <div class="glow-bg"></div>
+    <div class="glow-bg-secondary"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <span class="logo-icon"><i class="fa-solid fa-compass-drafting animate-spin"></i></span>
+            <div class="logo-text">
+                <h1>TIMETRAVEL</h1>
+                <span class="subtitle">AGENCY</span>
+            </div>
+        </div>
+        <div class="tagline">"Le temps est votre destination"</div>
+        <div class="nav-links">
+            <a href="#teaser-section"><i class="fa-solid fa-play"></i> Teaser</a>
+            <a href="#destinations-section"><i class="fa-solid fa-earth-europe"></i> Destinations</a>
+            <a href="#quiz-section"><i class="fa-solid fa-circle-question"></i> Affinité</a>
+            <a href="#booking-section"><i class="fa-solid fa-ticket"></i> Réservation</a>
+            <a href="#gallery-section"><i class="fa-solid fa-images"></i> Galerie</a>
+            <a href="#audio-suite-section"><i class="fa-solid fa-sliders"></i> Audio</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Introduction Banner -->
+        <section class="hero-banner">
+            <div class="glass-card hero-intro">
+                <span class="badge">Lancement Officiel de la Campagne de Prestige</span>
+                <h2>Voyagez Hors Limites. Voyagez dans le Temps.</h2>
+                <p>Découvrez notre nouvelle collection de voyages temporels exclusifs. Une immersion totale et haut de gamme au cœur des époques les plus marquantes de notre histoire.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="startCinematicTeaser()"><i class="fa-solid fa-film"></i> Lancer le Teaser Interactif</button>
+                    <a href="#destinations-section" class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i> Explorer les Destinations</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaser Cinematic Player Section -->
+        <section id="teaser-section" class="interactive-section">
+            <h3 class="section-title"><i class="fa-solid fa-circle-play"></i> Teaser Interactif</h3>
+            <p class="section-desc">Faites l'expérience du teaser de 20 secondes mêlant nos 3 destinations avec des transitions fluides, un effet cinéma de lumière rasante et une voix-off premium synchronisée.</p>
+
+            <div class="glass-card teaser-wrapper">
+                <div class="teaser-viewport" id="teaser-viewport">
+                    <!-- Paris Slide -->
+                    <div class="teaser-slide active" id="slide-paris">
+                        <img src="assets/paris_1889_hero.png" alt="Paris 1889 Hero Video" class="cinematic-img dolly-in">
+                        <div class="cinematic-overlay"></div>
+                        <div class="subtitle-overlay">Contemplez la naissance monumentale de la Tour Eiffel en 1889.</div>
+                        <div class="era-badge"><i class="fa-solid fa-gavel"></i> Paris 1889</div>
+                    </div>
+
+                    <!-- Cretaceous Slide -->
+                    <div class="teaser-slide" id="slide-cretaceous">
+                        <img src="assets/cretaceous_hero.png" alt="Cretaceous Hero Video" class="cinematic-img crane-up">
+                        <div class="cinematic-overlay"></div>
+                        <div class="subtitle-overlay">Marchez parmi les géants sacrés du Crétacé sauvage.</div>
+                        <div class="era-badge"><i class="fa-solid fa-dna"></i> L'Ère du Crétacé</div>
+                    </div>
+
+                    <!-- Florence Slide -->
+                    <div class="teaser-slide" id="slide-florence">
+                        <img src="assets/florence_hero.png" alt="Florence Renaissance Hero Video" class="cinematic-img pan-right">
+                        <div class="cinematic-overlay"></div>
+                        <div class="subtitle-overlay">Éveillez votre âme sous le soleil éternel de la Renaissance florentine.</div>
+                        <div class="era-badge"><i class="fa-solid fa-palette"></i> Florence Renaissance</div>
+                    </div>
+
+                    <!-- Branding Slide -->
+                    <div class="teaser-slide" id="slide-branding">
+                        <div class="branding-teaser-content">
+                            <h2 class="branding-title animate-glow">TIMETRAVEL</h2>
+                            <p class="branding-baseline">Votre voyage commence hier.</p>
+                        </div>
+                        <div class="cinematic-overlay dark-overlay"></div>
+                    </div>
+
+                    <!-- Teaser Visual Timeline bar -->
+                    <div class="timeline-bar">
+                        <div class="timeline-progress" id="teaser-progress"></div>
+                    </div>
+                </div>
+
+                <!-- Teaser Quick Controls -->
+                <div class="teaser-controls">
+                    <button class="control-btn" id="play-teaser-btn" onclick="toggleTeaserPlayback()">
+                        <i class="fa-solid fa-play"></i> LIRE LE TEASER
+                    </button>
+                    <div class="sound-sync-note">
+                        <i class="fa-solid fa-volume-high animate-pulse"></i> <span>Le son s'active automatiquement au lancement pour une immersion complète !</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Destinations Detail Section -->
+        <section id="destinations-section" class="interactive-section">
+            <h3 class="section-title"><i class="fa-solid fa-map-location-dot"></i> Catalogue des Époques</h3>
+            <p class="section-desc">Chaque destination a été étudiée méticuleusement pour vous offrir l'expérience de voyage la plus authentique et sophistiquée.</p>
+
+            <div class="destinations-grid">
+                <!-- Paris 1889 Card -->
+                <div class="glass-card destination-card" onclick="selectEra('paris')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/paris_1889_hero.png" alt="Paris 1889 Preview">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-date">Belle Époque</span>
+                        <h4>Paris 1889</h4>
+                        <p>Assistez à l'inauguration de la Tour Eiffel sous les lumières dorées de l'Exposition Universelle.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-hourglass-start"></i> 1889 AD</span>
+                            <span><i class="fa-solid fa-temperature-half"></i> 18°C (Doux)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cretaceous Card -->
+                <div class="glass-card destination-card" onclick="selectEra('cretaceous')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/cretaceous_hero.png" alt="Cretaceous Preview">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-date">Ère Mésozoïque</span>
+                        <h4>Le Crétacé</h4>
+                        <p>Plongez dans le mystère d'un lagon sauvage préservé, dominé par des sauropodes colossaux.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-hourglass-start"></i> -70 Millions d'ans</span>
+                            <span><i class="fa-solid fa-temperature-half"></i> 32°C (Humide)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Florence Card -->
+                <div class="glass-card destination-card" onclick="selectEra('florence')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/florence_hero.png" alt="Florence Preview">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-date">Cinque Cento</span>
+                        <h4>Florence Renaissance</h4>
+                        <p>Éveillez vos sens artistiques au cœur de la Toscane classique aux côtés des plus grands maîtres.</p>
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-hourglass-start"></i> 1505 AD</span>
+                            <span><i class="fa-solid fa-temperature-half"></i> 24°C (Ensoleillé)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Affinity Quiz Section -->
+        <section id="quiz-section" class="interactive-section reveal">
+            <h3 class="section-title"><i class="fa-solid fa-compass"></i> Test d'Affinité Temporelle</h3>
+            <p class="section-desc">Quel voyageur temporel êtes-vous ? Répondez à ces 4 questions pour découvrir l'époque idéale qui résonne avec votre âme.</p>
+
+            <div class="glass-card quiz-container" id="quiz-box">
+                <!-- Quiz Progress -->
+                <div class="quiz-header">
+                    <div class="quiz-step-indicator">Question <span id="quiz-current-step">1</span> sur 4</div>
+                    <div class="quiz-progress-track">
+                        <div class="quiz-progress-fill" id="quiz-progress-bar" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Steps Container -->
+                <div class="quiz-steps">
+                    <!-- Step 1 -->
+                    <div class="quiz-step active" id="quiz-step-1">
+                        <h4 class="quiz-question">1. Quel type d'expérience recherchez-vous avant tout ?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(1, 'A')">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">L'effervescence culturelle, les galeries d'art et les chefs-d'œuvre éternels (Renaissance)</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(1, 'B')">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">L'aventure brute, la nature sauvage et le contact direct avec l'origine du monde (Crétacé)</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(1, 'C')">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">L'élégance urbaine, l'innovation scientifique et le raffinement mondain (Paris 1889)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="quiz-step" id="quiz-step-2">
+                        <h4 class="quiz-question">2. Quelle est votre période historique ou géologique de prédilection ?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(2, 'C')">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">La Renaissance italienne, le renouveau des arts et des lettres (XV-XVIe siècle)</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(2, 'A')">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">La Belle Époque française, l'ère industrielle et l'Exposition Universelle (1889)</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(2, 'B')">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">Les temps les plus anciens, le Crétacé et le règne des géants (-70M d'années)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="quiz-step" id="quiz-step-3">
+                        <h4 class="quiz-question">3. Quel paysage résonne le plus avec votre idée d'évasion ?</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(3, 'C')">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">Les collines toscanes aux couleurs ocres enveloppées d'une douce brume d'or</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(3, 'A')">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">Les boulevards animés sous la pluie, éclairés par les premiers réverbères à gaz</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(3, 'B')">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">Un lagon d'eau chaude volcanique au cœur d'une forêt dense de fougères géantes</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="quiz-step" id="quiz-step-4">
+                        <h4 class="quiz-question">4. Si vous deviez choisir une activité d'une journée :</h4>
+                        <div class="quiz-options">
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(4, 'B')">
+                                <span class="option-letter">A</span>
+                                <span class="option-text">Observer à distance sécurisée un troupeau de sauropodes majestueux broutant la canopée</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(4, 'C')">
+                                <span class="option-letter">B</span>
+                                <span class="option-text">Contempler des chefs-d'œuvre picturaux et arpenter les ruelles de Florence</span>
+                            </button>
+                            <button class="quiz-option btn-secondary" onclick="answerQuiz(4, 'A')">
+                                <span class="option-letter">C</span>
+                                <span class="option-text">Assister à l'inauguration de la Tour Eiffel en redingote de prestige en 1889</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Results (Hidden initially) -->
+                <div class="quiz-result" id="quiz-result-box" style="display: none;">
+                    <div class="result-layout">
+                        <div class="result-image-wrapper">
+                            <img src="assets/paris_1889_hero.png" alt="Recommandation" id="quiz-result-img">
+                            <div class="result-image-overlay"></div>
+                        </div>
+                        <div class="result-details">
+                            <span class="badge" id="quiz-result-badge">Recommandation Spéciale</span>
+                            <h4 id="quiz-result-title">Florence Renaissance</h4>
+                            <p id="quiz-result-desc">Votre âme est profondément sensible à l'art, au classicisme et au raffinement. Le Cinque Cento toscan vous attend pour éveiller vos sens.</p>
+                            <div class="result-actions">
+                                <button class="btn btn-primary" onclick="bookRecommendedEra()"><i class="fa-solid fa-ticket"></i> Réserver cette époque</button>
+                                <button class="btn btn-secondary" onclick="restartQuiz()"><i class="fa-solid fa-rotate-left"></i> Recommencer le test</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking-section" class="interactive-section reveal">
+            <h3 class="section-title"><i class="fa-solid fa-bell-concierge"></i> Salon de Réservation Prestige</h3>
+            <p class="section-desc">Planifiez votre corridor temporel sécurisé. Nos physiciens et historiens veilleront à l'alignement parfait de votre voyage.</p>
+
+            <div class="booking-wrapper">
+                <!-- Left: Booking Form -->
+                <div class="glass-card booking-form-card">
+                    <form id="time-booking-form" onsubmit="handleBookingSubmit(event)">
+                        <div class="form-group">
+                            <label for="booking-era"><i class="fa-solid fa-clock"></i> Destination Temporelle</label>
+                            <select id="booking-era" class="form-control" onchange="calculateBookingPrice()" required>
+                                <option value="" disabled selected>Choisissez votre époque...</option>
+                                <option value="paris">Paris 1889 — Belle Époque (15 000 €)</option>
+                                <option value="cretaceous">Le Crétacé — Ère Originelle (75 000 €)</option>
+                                <option value="florence">Florence — Renaissance Italienne (25 000 €)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-departure"><i class="fa-solid fa-calendar-plus"></i> Date de Départ (Temps Standard)</label>
+                                <input type="date" id="booking-departure" class="form-control" onchange="calculateBookingPrice()" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-return"><i class="fa-solid fa-calendar-minus"></i> Date de Retour (Temps Standard)</label>
+                                <input type="date" id="booking-return" class="form-control" onchange="calculateBookingPrice()" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="booking-travelers"><i class="fa-solid fa-user-group"></i> Nombre d'Explorateurs</label>
+                                <input type="number" id="booking-travelers" class="form-control" min="1" max="6" value="1" onchange="calculateBookingPrice()" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="booking-class"><i class="fa-solid fa-crown"></i> Classe de Corridor</label>
+                                <select id="booking-class" class="form-control" onchange="calculateBookingPrice()">
+                                    <option value="first">Impériale (Premium - Recommandé)</option>
+                                    <option value="business">Signature (Confort Supérieur)</option>
+                                    <option value="observer">Observateur (Standard)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fa-solid fa-shield-halved"></i> Options de Sécurité et Services Deluxe</label>
+                            <div class="checkbox-options-grid">
+                                <label class="checkbox-option-wrapper">
+                                    <input type="checkbox" id="opt-insurance" value="4500" onchange="calculateBookingPrice()">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="checkbox-label">Assurance Paradoxe Temporel (+ 4 500 €)</span>
+                                </label>
+                                <label class="checkbox-option-wrapper">
+                                    <input type="checkbox" id="opt-clothing" value="1500" onchange="calculateBookingPrice()">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="checkbox-label">Pack Haute-Couture d'Époque (+ 1 500 €)</span>
+                                </label>
+                                <label class="checkbox-option-wrapper">
+                                    <input type="checkbox" id="opt-chrono" value="3000" onchange="calculateBookingPrice()">
+                                    <span class="custom-checkbox"></span>
+                                    <span class="checkbox-label">Chronomètre Temporel Connecté (+ 3 000 €)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit-booking"><i class="fa-solid fa-circle-check"></i> Initialiser le Corridor Temporel</button>
+                    </form>
+                </div>
+
+                <!-- Right: Ticket Summary -->
+                <div class="glass-card booking-summary-card">
+                    <div class="ticket-watermark"><i class="fa-solid fa-hourglass"></i></div>
+                    <div class="ticket-header">
+                        <span class="ticket-brand">TIMETRAVEL CORP</span>
+                        <span class="ticket-serial" id="ticket-serial">#TT-893-X2</span>
+                    </div>
+
+                    <div class="ticket-body">
+                        <h4 class="ticket-title">VOTRE PASSEPORT CHRONOLOGIQUE</h4>
+                        
+                        <div class="ticket-info-grid">
+                            <div class="ticket-info-item">
+                                <span class="ticket-label">Destination</span>
+                                <span class="ticket-val" id="summary-era">- Non Sélectionnée -</span>
+                            </div>
+                            <div class="ticket-info-item">
+                                <span class="ticket-label">Explorateurs</span>
+                                <span class="ticket-val" id="summary-travelers">1 Voyageur</span>
+                            </div>
+                            <div class="ticket-info-item">
+                                <span class="ticket-label">Départ Standard</span>
+                                <span class="ticket-val" id="summary-departure">-- / -- / ----</span>
+                            </div>
+                            <div class="ticket-info-item">
+                                <span class="ticket-label">Retour Standard</span>
+                                <span class="ticket-val" id="summary-return">-- / -- / ----</span>
+                            </div>
+                        </div>
+
+                        <div class="ticket-price-details">
+                            <div class="price-line">
+                                <span>Coût de base de la destination</span>
+                                <span id="price-base">0 €</span>
+                            </div>
+                            <div class="price-line">
+                                <span>Corridor & Classe multiplier</span>
+                                <span id="price-multiplier">x 1.0</span>
+                            </div>
+                            <div class="price-line">
+                                <span>Options sélectionnées</span>
+                                <span id="price-options">0 €</span>
+                            </div>
+                            <div class="price-line total-price-line">
+                                <span>Montant Total Estimé</span>
+                                <span id="price-total">0 €</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-footer">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Validation automatique par corridor anti-paradoxe quantique. Corridor breveté Alcubierre.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Success Modal (Hidden by default) -->
+            <div class="booking-success-overlay" id="booking-success-modal" style="display: none;">
+                <div class="glass-card success-card">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check animate-pulse"></i></div>
+                    <h3>Voyage Temporel Initialisé !</h3>
+                    <p>Votre corridor quantique a été stabilisé à <strong>99.98%</strong>. Notre concierge d'époque vous contactera sous peu pour finaliser vos essayages vestimentaires et vaccins temporels.</p>
+                    
+                    <div class="success-ticket-details">
+                        <div class="success-row"><span>Numéro de Vol :</span><strong id="success-flight-id">#TT-4523</strong></div>
+                        <div class="success-row"><span>Coordonnées Temporelles :</span><strong id="success-coords">-65 Million Years</strong></div>
+                        <div class="success-row"><span>Classe de Voyage :</span><strong id="success-class">Impériale (Premium)</strong></div>
+                        <div class="success-row"><span>Prix Final :</span><strong id="success-price">112 500 €</strong></div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="closeSuccessModal()"><i class="fa-solid fa-check"></i> Terminer l'inscription</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Pack Grid and Mockups -->
+        <section id="gallery-section" class="interactive-section">
+            <h3 class="section-title"><i class="fa-solid fa-photo-film"></i> Pack Visuel de Campagne</h3>
+            <p class="section-desc">Explorez l'identité multi-format de la campagne. Sélectionnez un format pour voir comment nos visuels s'adaptent harmonieusement au web, à Instagram et aux Stories.</p>
+
+            <div class="format-selectors">
+                <button class="format-tab active" id="tab-16-9" onclick="switchFormat('16-9')"><i class="fa-solid fa-display"></i> Paysage (16:9 Hero)</button>
+                <button class="format-tab" id="tab-1-1" onclick="switchFormat('1-1')"><i class="fa-solid fa-square"></i> Instagram (1:1)</button>
+                <button class="format-tab" id="tab-9-16" onclick="switchFormat('9-16')"><i class="fa-solid fa-mobile-screen-button"></i> Stories (9:16)</button>
+            </div>
+
+            <!-- 16:9 Format Showroom -->
+            <div class="gallery-container active" id="gallery-16-9">
+                <div class="gallery-row">
+                    <div class="glass-card visual-card">
+                        <div class="visual-viewport landscape">
+                            <img src="assets/paris_1889_hero.png" alt="Paris 1889 16:9">
+                        </div>
+                        <div class="visual-info">
+                            <h5>Paris 1889 — Image "Hero"</h5>
+                            <span class="badge-format">16:9</span>
+                        </div>
+                    </div>
+                    <div class="glass-card visual-card">
+                        <div class="visual-viewport landscape">
+                            <img src="assets/cretaceous_hero.png" alt="Crétacé 16:9">
+                        </div>
+                        <div class="visual-info">
+                            <h5>Le Crétacé — Image "Hero"</h5>
+                            <span class="badge-format">16:9</span>
+                        </div>
+                    </div>
+                    <div class="glass-card visual-card">
+                        <div class="visual-viewport landscape">
+                            <img src="assets/florence_hero.png" alt="Florence 16:9">
+                        </div>
+                        <div class="visual-info">
+                            <h5>Florence Renaissance — Image "Hero"</h5>
+                            <span class="badge-format">16:9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1:1 Instagram Card Mockup -->
+            <div class="gallery-container" id="gallery-1-1">
+                <div class="gallery-row">
+                    <!-- Instagram Card Paris -->
+                    <div class="instagram-card glass-card">
+                        <div class="ig-header">
+                            <div class="ig-avatar"><i class="fa-solid fa-compass"></i></div>
+                            <div class="ig-user">
+                                <span class="ig-username">timetravel.agency</span>
+                                <span class="ig-location">Paris, France (1889)</span>
+                            </div>
+                            <i class="fa-solid fa-ellipsis ig-more"></i>
+                        </div>
+                        <div class="visual-viewport square">
+                            <img src="assets/paris_1889_1x1.png" alt="Paris 1889 1:1">
+                        </div>
+                        <div class="ig-footer">
+                            <div class="ig-actions">
+                                <span><i class="fa-regular fa-heart"></i></span>
+                                <span><i class="fa-regular fa-comment"></i></span>
+                                <span><i class="fa-regular fa-paper-plane"></i></span>
+                                <span class="ig-bookmark"><i class="fa-regular fa-bookmark"></i></span>
+                            </div>
+                            <p class="ig-likes">Aimé par <strong>louvre_museum</strong> et <strong>12 432 autres personnes</strong></p>
+                            <p class="ig-caption"><strong>timetravel.agency</strong> Paris, 1889. L'élégance de la Belle Époque au pied d'un géant d'acier naissant. Prêts pour l'Exposition Universelle ? 🗼✨ #voyagedansletemps #belleepoque #luxe</p>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card Cretaceous -->
+                    <div class="instagram-card glass-card">
+                        <div class="ig-header">
+                            <div class="ig-avatar"><i class="fa-solid fa-compass"></i></div>
+                            <div class="ig-user">
+                                <span class="ig-username">timetravel.agency</span>
+                                <span class="ig-location">Lagon Sauvage (Crétacé)</span>
+                            </div>
+                            <i class="fa-solid fa-ellipsis ig-more"></i>
+                        </div>
+                        <div class="visual-viewport square">
+                            <img src="assets/cretaceous_1x1.png" alt="Cretaceous 1:1">
+                        </div>
+                        <div class="ig-footer">
+                            <div class="ig-actions">
+                                <span><i class="fa-regular fa-heart"></i></span>
+                                <span><i class="fa-regular fa-comment"></i></span>
+                                <span><i class="fa-regular fa-paper-plane"></i></span>
+                                <span class="ig-bookmark"><i class="fa-regular fa-bookmark"></i></span>
+                            </div>
+                            <p class="ig-likes">Aimé par <strong>natgeo</strong> et <strong>45 921 autres personnes</strong></p>
+                            <p class="ig-caption"><strong>timetravel.agency</strong> L'origine du monde. Retrouvez le calme sacré des lagons sauvages du Crétacé. Le grand frisson des premiers matins de la Terre. 🦕🌿 #prehistorique #cretaceous #sauvage</p>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card Florence -->
+                    <div class="instagram-card glass-card">
+                        <div class="ig-header">
+                            <div class="ig-avatar"><i class="fa-solid fa-compass"></i></div>
+                            <div class="ig-user">
+                                <span class="ig-username">timetravel.agency</span>
+                                <span class="ig-location">Florence, Italie (1505)</span>
+                            </div>
+                            <i class="fa-solid fa-ellipsis ig-more"></i>
+                        </div>
+                        <div class="visual-viewport square">
+                            <img src="assets/florence_1x1.png" alt="Florence 1:1">
+                        </div>
+                        <div class="ig-footer">
+                            <div class="ig-actions">
+                                <span><i class="fa-regular fa-heart"></i></span>
+                                <span><i class="fa-regular fa-comment"></i></span>
+                                <span><i class="fa-regular fa-paper-plane"></i></span>
+                                <span class="ig-bookmark"><i class="fa-regular fa-bookmark"></i></span>
+                            </div>
+                            <p class="ig-likes">Aimé par <strong>uffizigallery</strong> et <strong>31 820 autres personnes</strong></p>
+                            <p class="ig-caption"><strong>timetravel.agency</strong> L'esprit de la Renaissance. Quand le cuir des vieux carnets et la lumière dorée toscane ne forment plus qu'un. Écrivez votre propre chapitre en 1505. 🖼️✒️ #florence #renaissance #art</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9:16 Story Mobile Frame Mockup -->
+            <div class="gallery-container" id="gallery-9-16">
+                <div class="gallery-row scroll-row">
+                    <!-- Phone Frame Paris -->
+                    <div class="phone-frame-container">
+                        <div class="phone-frame glass-card">
+                            <div class="phone-screen">
+                                <div class="phone-status-bar">
+                                    <span>20:57</span>
+                                    <div class="phone-status-icons">
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                <div class="story-progress-container">
+                                    <div class="story-progress-bar active" style="width: 100%;"></div>
+                                </div>
+                                <div class="story-header">
+                                    <div class="story-avatar"><i class="fa-solid fa-compass"></i></div>
+                                    <span class="story-username">timetravel.agency</span>
+                                    <span class="story-time">14h</span>
+                                </div>
+                                <div class="visual-viewport story">
+                                    <img src="assets/paris_1889_9x16.png" alt="Paris 1889 Story 9:16">
+                                </div>
+                                <div class="story-footer">
+                                    <span class="story-tagline">Paris Belle Époque</span>
+                                    <p class="story-callout">Départ le 14 Juin</p>
+                                    <div class="story-reply-box">
+                                        <span>Envoyer un message</span>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="frame-label">Instagram Story — Paris 1889</p>
+                    </div>
+
+                    <!-- Phone Frame Cretaceous -->
+                    <div class="phone-frame-container">
+                        <div class="phone-frame glass-card">
+                            <div class="phone-screen">
+                                <div class="phone-status-bar">
+                                    <span>20:57</span>
+                                    <div class="phone-status-icons">
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                <div class="story-progress-container">
+                                    <div class="story-progress-bar active" style="width: 100%;"></div>
+                                </div>
+                                <div class="story-header">
+                                    <div class="story-avatar"><i class="fa-solid fa-compass"></i></div>
+                                    <span class="story-username">timetravel.agency</span>
+                                    <span class="story-time">8h</span>
+                                </div>
+                                <div class="visual-viewport story">
+                                    <img src="assets/cretaceous_9x16.png" alt="Cretaceous Story 9:16">
+                                </div>
+                                <div class="story-footer">
+                                    <span class="story-tagline">L'Ère Originelle</span>
+                                    <p class="story-callout">Expédition Crétacé Sauvage</p>
+                                    <div class="story-reply-box">
+                                        <span>Envoyer un message</span>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="frame-label">Instagram Story — Le Crétacé</p>
+                    </div>
+
+                    <!-- Phone Frame Florence -->
+                    <div class="phone-frame-container">
+                        <div class="phone-frame glass-card">
+                            <div class="phone-screen">
+                                <div class="phone-status-bar">
+                                    <span>20:57</span>
+                                    <div class="phone-status-icons">
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-battery-three-quarters"></i>
+                                    </div>
+                                </div>
+                                <div class="story-progress-container">
+                                    <div class="story-progress-bar active" style="width: 100%;"></div>
+                                </div>
+                                <div class="story-header">
+                                    <div class="story-avatar"><i class="fa-solid fa-compass"></i></div>
+                                    <span class="story-username">timetravel.agency</span>
+                                    <span class="story-time">2h</span>
+                                </div>
+                                <div class="visual-viewport story">
+                                    <img src="assets/florence_9x16.png" alt="Florence Story 9:16">
+                                </div>
+                                <div class="story-footer">
+                                    <span class="story-tagline">Toscane Classique</span>
+                                    <p class="story-callout">Séjour d'Art & Noblesse</p>
+                                    <div class="story-reply-box">
+                                        <span>Envoyer un message</span>
+                                        <i class="fa-regular fa-paper-plane"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="frame-label">Instagram Story — Florence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Engineering Console (Realtime Synthesizers & Voice-off Player) -->
+        <section id="audio-suite-section" class="interactive-section">
+            <h3 class="section-title"><i class="fa-solid fa-volume-high"></i> Console Audio & Voix-Off</h3>
+            <p class="section-desc">Contrôlez l'environnement sonore. Activez la musique d'ambiance orchestrale dynamique générée en temps réel, ou lancez la narration vocale de notre campagne de luxe.</p>
+
+            <div class="glass-card audio-dashboard">
+                <div class="audio-left">
+                    <div class="visualizer-container">
+                        <canvas id="audio-visualizer"></canvas>
+                        <div class="visualizer-overlay-text" id="visualizer-status">AUDIO ACTUELLEMENT INACTIF</div>
+                    </div>
+                    
+                    <div class="voice-script-box">
+                        <span class="box-title"><i class="fa-solid fa-quote-left"></i> Script de la Voix-Off (62 mots)</span>
+                        <blockquote id="voice-script-text">
+                            "Le temps n'est plus une limite. <span class="highlight-voice" data-start="3" data-end="6">Et si vous pouviez voyager au-delà des siècles ?</span> <span class="highlight-voice" data-start="6" data-end="10">Contemplez la naissance monumentale de la Tour Eiffel en 1889.</span> <span class="highlight-voice" data-start="10" data-end="14">Marchez parmi les géants sacrés du Crétacé sauvage.</span> <span class="highlight-voice" data-start="14" data-end="18">Éveillez votre âme sous le soleil éternel de la Renaissance florentine.</span> <span class="highlight-voice" data-start="18" data-end="23">TimeTravel Agency. Le temps est votre destination."</span>
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="audio-right">
+                    <!-- Global Controls -->
+                    <div class="audio-control-group">
+                        <h5><i class="fa-solid fa-play"></i> Lecture Globale</h5>
+                        <div class="global-buttons">
+                            <button class="btn btn-audio-play" id="global-play-btn" onclick="toggleGlobalAudio()"><i class="fa-solid fa-play"></i> Lancer la Bande Son</button>
+                            <button class="btn btn-audio-stop" onclick="stopAllAudio()"><i class="fa-solid fa-stop"></i> Arrêter tout</button>
+                        </div>
+                    </div>
+
+                    <!-- Voice-off controls -->
+                    <div class="audio-control-group">
+                        <div class="group-header">
+                            <h5><i class="fa-solid fa-microphone"></i> 1. Voix-Off Narrative</h5>
+                            <span class="status-badge status-voice" id="voice-status">Inactif</span>
+                        </div>
+                        <div class="control-row">
+                            <button class="mini-play-btn" id="voice-play-btn" onclick="toggleVoiceOnly()"><i class="fa-solid fa-play"></i></button>
+                            <div class="slider-wrapper">
+                                <label><i class="fa-solid fa-volume-low"></i> Volume Voix</label>
+                                <input type="range" min="0" max="1" step="0.1" value="0.8" id="slider-voice" oninput="adjustVolume('voice', this.value)">
+                            </div>
+                        </div>
+                        <div class="vocal-voice-selector">
+                            <label for="voice-select">Choix de la voix :</label>
+                            <select id="voice-select" onchange="changeVoiceSelection()"></select>
+                        </div>
+                    </div>
+
+                    <!-- Realtime Cinematic Orchestral Synth controls -->
+                    <div class="audio-control-group">
+                        <div class="group-header">
+                            <h5><i class="fa-solid fa-music"></i> 2. Musique d'Ambiance Symphonique</h5>
+                            <span class="status-badge status-music" id="music-status">Inactif</span>
+                        </div>
+                        <div class="control-row">
+                            <button class="mini-play-btn" id="music-play-btn" onclick="toggleMusicOnly()"><i class="fa-solid fa-play"></i></button>
+                            <div class="slider-wrapper">
+                                <label><i class="fa-solid fa-volume-low"></i> Volume Musique</label>
+                                <input type="range" min="0" max="1" step="0.1" value="0.4" id="slider-music" oninput="adjustVolume('music', this.value)">
+                            </div>
+                        </div>
+                        <div class="music-style-note">
+                            <i class="fa-solid fa-info-circle"></i> <span>Génération temps réel Web Audio API • Style : Orchestral Ambience (Hans Zimmer) • Basse sourde, cordes chaudes, piano cristallin, crescendo progressif.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation reference quickview -->
+        <section class="quick-doc-section">
+            <div class="glass-card doc-card">
+                <h4><i class="fa-solid fa-book-open"></i> Note d'Intention & Directives</h4>
+                <p>Ce projet s'inscrit dans le cadre du lancement du package de communication de la marque <strong>TimeTravel Agency</strong>. Nos axes de développement respectent scrupuleusement la charte scientifique de chaque époque tout en y adjoignant une esthétique haut de gamme, cinématique et épurée.</p>
+                <div class="doc-links">
+                    <a href="docs/reference_document.md" target="_blank" class="doc-link"><i class="fa-solid fa-file-lines"></i> Lire la Charte Artistique (.md)</a>
+                    <a href="docs/process_report.md" target="_blank" class="doc-link"><i class="fa-solid fa-file-circle-check"></i> Voir le Rapport de Génération (.md)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="footer-title">TIMETRAVEL AGENCY</span>
+                <span class="footer-copyright">© 2026 Creative Luxury Campaign. Tous droits réservés.</span>
+            </div>
+            <div class="footer-tech-stack">
+                <span>Made with <i class="fa-solid fa-heart animate-pulse"></i> by Antigravity AI using Web Audio, Web Speech, and 8K Visual Models</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Chatbot Floating Widget -->
+    <div class="chatbot-widget-container">
+        <!-- Floating bubble icon button -->
+        <button class="chatbot-bubble" id="chatbot-bubble-btn" onclick="toggleChatPanel()">
+            <div class="pulse-ring"></div>
+            <i class="fa-solid fa-message chatbot-bubble-icon"></i>
+            <span class="bubble-notification" id="chat-notification">1</span>
+        </button>
+
+        <!-- Glassmorphic Chat Panel -->
+        <div class="glass-card chatbot-panel" id="chatbot-panel-box">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar"><i class="fa-solid fa-user-astronaut"></i><span class="avatar-status"></span></div>
+                    <div>
+                        <h4>Léo — Chrono-Guide</h4>
+                        <span class="chatbot-status">Assistant IA • En Ligne</span>
+                    </div>
+                </div>
+                <button class="chatbot-close-btn" onclick="toggleChatPanel()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Chat Message List -->
+            <div class="chatbot-messages" id="chatbot-messages-list">
+                <!-- Welcome Message from Bot -->
+                <div class="chatbot-message bot">
+                    <div class="message-content">
+                        Bonjour ! Je suis <strong>Léo</strong>, votre conseiller expert en chronologie chez <strong>TimeTravel Agency</strong>. 🧭<br><br>
+                        Je peux vous aider à planifier votre voyage, estimer vos tarifs de corridor ou vous en apprendre plus sur nos 3 époques d'exception :
+                        <ul>
+                            <li>🗼 <strong>Paris 1889</strong> (L'élégance de la Belle Époque)</li>
+                            <li>🦕 <strong>Le Crétacé sauvage</strong> (Le frisson préhistorique)</li>
+                            <li>🖼️ <strong>Florence Renaissance</strong> (Le berceau de la beauté toscane)</li>
+                        </ul>
+                        Quelle aventure résonne en vous aujourd'hui ?
+                    </div>
+                    <span class="message-time">À l'instant</span>
+                </div>
+            </div>
+
+            <!-- Suggestions chips wrapper -->
+            <div class="chatbot-chips">
+                <button class="chip-btn" onclick="sendQuickReply('Paris 1889')">🗼 Paris 1889</button>
+                <button class="chip-btn" onclick="sendQuickReply('Crétacé')">🦕 Le Crétacé</button>
+                <button class="chip-btn" onclick="sendQuickReply('Florence')">🖼️ Florence</button>
+                <button class="chip-btn" onclick="sendQuickReply('Quel est le prix ?')">💰 Prix & Formules</button>
+                <button class="chip-btn" onclick="sendQuickReply('Est-ce sécurisé ?')">🛡️ Sécurité</button>
+            </div>
+
+            <!-- Input area -->
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input-text" placeholder="Posez-moi vos questions sur le voyage temporel..." onkeydown="handleChatInputKeyDown(event)">
+                <button class="btn-chat-send" onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="script.js"></script>
+</body>
+</html>
