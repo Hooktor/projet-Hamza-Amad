@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: timetravel-agency
+    env: static
+    buildCommand: ""
+    publishPath: "."
